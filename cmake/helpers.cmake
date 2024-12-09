@@ -85,6 +85,9 @@ if (CXX_HAS_CFI_SANITIZE)
     # guarantee. -fsanitize=cfi depends on -flto
     set(CFI_FLAGS -flto -fsanitize=cfi -fno-sanitize=cfi-icall -fsanitize-ignorelist=${CMAKE_CURRENT_SOURCE_DIR}/sanitizer-ignorelist.txt)
 endif()
+if("${CFI_FLAGS}" STREQUAL "")
+    message(FATAL_ERROR "CFI must be enabled!")
+endif()
 
 function(add_ur_target_compile_options name)
     if(NOT MSVC)
