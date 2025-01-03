@@ -10,3 +10,7 @@ add_subdirectory(common)
 add_subdirectory(loader)
 add_subdirectory(mock)
 add_subdirectory(adapters)
+
+if(UR_ENABLE_SYMBOLIZER)
+    add_subdirectory(symbolizer)
+endif()
